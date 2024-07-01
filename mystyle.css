@@ -1,0 +1,461 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Playball&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Moon+Dance&family=Orbitron:wght@600&family=Playball&display=swap');
+
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0; /* Added to reset default margin */
+}
+
+/* Header Styles */
+header {
+  background-color: #000000; /* Dark background color for the header */
+  color: #fff; /* White text color for the header */
+  padding: 1rem 0; /* Padding top and bottom of the header */
+}
+
+.header-container {
+  width: 90%; /* Adjusted for smaller screens */
+  max-width: 1200px; /* Added max-width for larger screens */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 30px; /* Adjust the height of the logo */
+  width: auto; /* Maintain aspect ratio of the logo */
+  margin-right: 1rem; /* Adds spacing between logo and navigation */
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex; /* Adjusted for better flex layout */
+}
+
+nav ul li {
+  margin-right: 1rem;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  margin-right: 1rem; /* Adds spacing between search bar and user options */
+}
+
+.search-bar input[type="text"] {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  width: 150px; /* Adjust the width of the search input */
+}
+
+.user-options a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 1rem;
+}
+
+.user-options a:hover {
+  text-decoration: underline;
+}
+
+/* Theme Switch */
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  margin-left: 20px; /* Adjust margin as per your design */
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.theme-switch-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 30px; /* Adjust border-radius for rounder corners */
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Align items space-between */
+  padding: 0 5px; /* Adjust padding for spacing */
+}
+
+.theme-switch-label .sun-moon {
+  font-size: 18px;
+  line-height: 1;
+  display: inline-block;
+  width: 24px; /* Adjust size of sun and moon icons */
+  text-align: center;
+}
+
+.theme-switch-label .sun-moon::before,
+.theme-switch-label .sun-moon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.theme-switch-label .sun-moon::before {
+  content: '☀️'; /* Default sun emoji */
+  left: 0; /* Adjust positioning */
+}
+
+.theme-switch-label .sun-moon::after {
+  content: '🌙'; /* Moon emoji */
+  right: 0; /* Adjust positioning */
+  display: none; /* Hidden by default */
+}
+
+.theme-switch input:checked + .theme-switch-label {
+  background-color: #2ecc71; /* Dark mode background color */
+}
+
+.theme-switch input:checked + .theme-switch-label .sun-moon::before {
+  display: none; /* Hide sun emoji in dark mode */
+}
+
+.theme-switch input:checked + .theme-switch-label .sun-moon::after {
+  display: inline-block; /* Show moon emoji in dark mode */
+}
+
+.theme-switch input:checked + .theme-switch-label::before {
+  transform: translateX(26px); /* Adjust toggle switch position */
+}
+
+.theme-switch-label::before {
+  content: '';
+  position: absolute;
+  left: 2px; /* Adjust toggle switch position */
+  top: 2px; /* Adjust toggle switch position */
+  width: 20px; /* Adjust toggle switch size */
+  height: 20px; /* Adjust toggle switch size */
+  background-color: #fff; /* Toggle switch background color */
+  border-radius: 50%; /* Make it round */
+  transition: transform 0.3s;
+}
+
+/* Main Content */
+main {
+  width: 100%; /* Full width of the viewport */
+  flex: 1; /* Allow main content to grow */
+  background-color: #1d2020; /* Dark background color for main content */
+  padding: 1rem; /* Added padding for better spacing */
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 300px; /* Adjusted height for smaller screens */
+  color: white; /* Set text color to white */
+  padding: 2rem; /* Padding inside intro section */
+}
+
+.welcome-text-image {
+  max-width: 90%; /* Adjust the size as needed */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Ensure the image is displayed as a block element */
+  margin: 0 auto; /* Center the image horizontally */
+}
+
+.intro h2 {
+  font-family: "Playball", cursive;
+  font-weight: 400;
+  font-style: normal;
+  margin-bottom: 1rem; /* Added margin bottom for spacing */
+}
+
+.intro p {
+  font-family: "Moon Dance", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem; /* Adjusted font size for smaller screens */
+  line-height: 1.6;
+  margin-bottom: 1rem; /* Added margin bottom for spacing */
+}
+
+.features {
+  background-color: #12171a; /* Dark background color */
+  padding: 2rem; /* Added padding for better spacing */
+  color: #f4f4f4; /* White text color */
+}
+
+.features h2 {
+  text-align: center; /* Center align the heading */
+  margin-bottom: 2rem; /* Added margin bottom for spacing */
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+  gap: 1rem; /* Gap between grid items */
+  margin-top: 2rem; /* Added margin top for spacing */
+}
+
+.feature {
+  text-align: center; /* Center align text */
+  background-color: rgba(255, 255, 255, 0.1); /* Transparent white background */
+  padding: 1rem; /* Padding inside feature */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for card effect */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
+}
+
+.feature:hover {
+  transform: translateY(-10px); /* Lift on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+}
+
+.feature img {
+  width: 100px; /* Adjusted width for smaller screens */
+  height: 100px; /* Adjusted height for smaller screens */
+  object-fit: cover; /* Maintain aspect ratio */
+  margin-bottom: 1rem; /* Added margin bottom for spacing */
+}
+
+.feature p {
+  margin-top: 0.5rem; /* Added margin top for spacing */
+  font-size: 1rem; /* Adjusted font size for smaller screens */
+}
+
+.feature p:last-child {
+  font-size: 0.875rem; /* Adjusted font size for smaller screens */
+  color: #ddd; /* Lighter color for secondary text */
+  margin-top: 0.5rem; /* Added margin top for spacing */
+}
+
+/* About Section Styling */
+.about {
+  background-color: rgba(255, 255, 255, 0.1); /* Transparent white background */
+  padding: 2rem; /* Padding for content */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for card effect */
+  margin: 2rem auto; /* Centered margin */
+  max-width: 800px; /* Max width for larger screens */
+  color: white; /* Ensure text is white */
+  text-align: center; /* Center align text */
+}
+
+.about h2 {
+  font-family: 'Orbitron', sans-serif; /* Orbitron font */
+  font-size: 2rem; /* Font size for heading */
+  margin-bottom: 1rem; /* Added margin bottom for spacing */
+}
+
+.about p {
+  font-family: 'Arial', sans-serif; /* Arial font */
+  font-size: 1rem; /* Font size for paragraph */
+  line-height: 1.6; /* Line height for readability */
+  margin-bottom: 1rem; /* Added margin bottom for spacing */
+}
+
+/* Footer styles */
+footer {
+  background-color: #000; /* Dark background color */
+  color: #fff; /* White text color */
+  padding: 2rem 0; /* Padding for the footer */
+  text-align: center; /* Center align text in footer */
+  width: 100%; /* Full width footer */
+  position: relative; /* Positioning relative to its normal position */
+  bottom: 0; /* Positioned at the bottom of its container */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 90%; /* Adjusted width for smaller screens */
+  max-width: 1200px; /* Added max width for larger screens */
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 2rem; /* Gap between footer sections */
+}
+
+.footer-left,
+.footer-right {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-left h3,
+.footer-right h3 {
+  margin-bottom: 1rem; /* Added margin bottom for spacing */
+}
+
+.footer-left p {
+  margin-bottom: 1rem; /* Added margin bottom for spacing */
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Gap between form elements */
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.5rem; /* Padding for input fields */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.contact-form button {
+  padding: 0.5rem; /* Padding for button */
+  border: none; /* Remove default border */
+  background-color: #ff4500; /* Button background color */
+  color: white; /* Text color */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+}
+
+.contact-form button:hover {
+  background-color: #e03e00; /* Darker background color on hover */
+}
+
+.footer-discord {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem; /* Added margin top for spacing */
+}
+
+.discord-button {
+  display: inline-block;
+  padding: 0.5rem 1rem; /* Padding for button */
+  background-color: #7289da; /* Button background color */
+  color: white; /* Text color */
+  text-decoration: none; /* Remove underline */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.discord-button:hover {
+  background-color: #5b6eae; /* Darker background color on hover */
+}
+
+.footer-copyright {
+  background-color: #000; /* Dark background color */
+  color: #fff; /* White text color */
+  padding: 1rem 0; /* Padding for copyright section */
+  text-align: center; /* Center align text */
+  margin-top: 2rem; /* Added margin top for spacing */
+}
+
+@media (max-width: 1024px) {
+  .header-container {
+    width: 95%; /* Adjusted width for smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column; /* Stack header items on smaller screens */
+    align-items: center; /* Center align items */
+  }
+  
+  .theme-switch {
+    margin-left: 0; /* Adjusted margin for smaller screens */
+    margin-top: 1rem; /* Added margin top for spacing */
+  }
+  
+  .search-bar input[type="text"] {
+    width: 120px; /* Adjusted width for smaller screens */
+  }
+  
+  .intro {
+    height: auto; /* Auto height for flexibility */
+    padding: 1rem; /* Adjusted padding for smaller screens */
+    text-align: center; /* Center align text */
+  }
+  
+  .intro h2 {
+    font-size: 1.5rem; /* Adjusted font size for smaller screens */
+    margin-bottom: 0.5rem; /* Added margin bottom for spacing */
+  }
+  
+  .intro p {
+    font-size: 1rem; /* Adjusted font size for smaller screens */
+    margin-bottom: 1rem; /* Added margin bottom for spacing */
+  }
+  
+  .features {
+    padding: 1rem; /* Adjusted padding for smaller screens */
+  }
+  
+  .feature-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 0.5rem; /* Adjusted gap for smaller screens */
+    margin-top: 1rem; /* Added margin top for spacing */
+  }
+  
+  .feature {
+    padding: 0.5rem; /* Adjusted padding for smaller screens */
+    font-size: 0.875rem; /* Adjusted font size for smaller screens */
+  }
+  
+  .feature img {
+    width: 80px; /* Adjusted width for smaller screens */
+    height: 80px; /* Adjusted height for smaller screens */
+    margin-bottom: 0.5rem; /* Added margin bottom for spacing */
+  }
+  
+  .about {
+    padding: 1rem; /* Adjusted padding for smaller screens */
+  }
+  
+  .footer-container {
+    width: 95%; /* Adjusted width for smaller screens */
+  }
+  
+  .footer-left,
+  .footer-right {
+    text-align: center; /* Center align text in footer sections */
+  }
+  
+  .footer-discord {
+    margin-top: 0.5rem; /* Adjusted margin top for spacing */
+  }
+}
